@@ -5,7 +5,6 @@ public class CountWordsInSentence {
         if (sentence == null || sentence.isEmpty()) {
             return 0;
         }
-        System.out.println(sentence.length());
 
         int count = 1; //start with 1 count
         for (int i = 0; i < sentence.length() ; i++) {
@@ -20,7 +19,6 @@ public class CountWordsInSentence {
     public static void main(String[] args) {
         String inputString = "Ali Shahbaz";
         System.out.println("Count of sentences are: " + wordsCounter(inputString));
-
     }
 
 }
