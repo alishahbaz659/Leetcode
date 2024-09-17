@@ -33,5 +33,8 @@ Each problem's solution can be compiled and run individually. The solutions are 
    ```bash
    javac ProblemName.java
 4. Run the compiled Java program:
-```bash
+   ```bash
    java ProblemName
+
+## License
+This repository is licensed under the MIT License. Feel free to use and modify the code as needed.
