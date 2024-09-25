@@ -22,13 +22,10 @@ public class RotateArray {
             end--;
         }
     }
-    
-    
-    }
+
     
     public static void main(String[] args) {
         int[] nums = {1,2,3,4,5,6,7};
-        rotateArrayFun(nums, 3);
-        System.out.println("Reverse of the array is: "+ Arrays.toString(nums));
+        System.out.println("Reverse of the array is: "+ Arrays.toString(rotateArrayFun(nums,3)));
     }
 }
