@@ -1,27 +1,39 @@
 public class JumpGameII {
 
 
-    public static int jump(int[] nums) {
-        int ans = 0;
-        int end = 0;
-        int farthest = 0;
+    /* The point to use greedy approach set up a greed criteria.
+     * The greed criteria is to choose the farthest I can go, from my available options
+     * We are extending our coverage at every step.
+     * Like on first index we can either go to index 1 or index 2
+     * So I have two options after jumping from 0 index, max I can go is either on 1 or 2. Then I will check again on 1 and
+     * 2 that what is the farthest I can go from these points. And update the coverage window again. lastJumpIdx will
+     * keep track of the last visited element from the current available window.
+     * */
 
-        // Implicit BFS
-        for (int i = 0; i < nums.length - 1; ++i) {
-            farthest = Math.max(farthest, i + nums[i]);
-            if (farthest >= nums.length - 1) {
-                ++ans;
-                break;
-            }
-            if (i == end) {   // Visited all the items on the current level
-                ++ans;          // Increment the level
-                end = farthest; // Make the queue size for the next level
+    public static int jump(int[] nums) {
+        int totalJumps = 0;
+        int destination = nums.length - 1; //destination is the last index
+        int coverage = 0; //the farthest we can go
+        int lastJumpIdx = 0; // it will tell this was the point where I could reach
+
+        for (int i = 0; i < nums.length; i++) {
+            coverage = Math.max(coverage, i + nums[i]);
+
+            if (i == lastJumpIdx) {
+                lastJumpIdx = coverage;
+                totalJumps++;
+
+                //check if we reached destination already
+                if (coverage >= destination) {
+                    return totalJumps;
+                }
             }
         }
 
-        return ans;
+        return totalJumps;
     }
 
+    //this one is using BFS and doing recursion to find the minimum number of jumps
     public static int minJumpsRecursion(int[] nums, int position) {
         int n = nums.length;
 
@@ -56,6 +68,6 @@ public class JumpGameII {
 
     public static void main(String[] args) {
         int[] nums = {2, 3, 1, 1, 4};
-        System.out.println("Min jump required: " + minJumpsRecursion(nums,0));
+        System.out.println("Min jump required: " + jump(nums));
     }
 }

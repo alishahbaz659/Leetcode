@@ -1,7 +1,7 @@
 public class BestTimeToBuyAndSellStock {
 
 
-    //brute force O(N^2)
+
     public static int maxProfit(int[] prices) {
         int maxProfit = 0;
         int minPrice = Integer.MAX_VALUE;
