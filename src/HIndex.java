@@ -9,22 +9,16 @@ import java.util.Arrays;
 public class HIndex {
 
     public static int hIndex(int[] citations) {
-        int index = 0;
+        int h = citations.length;
+        int maximum = 0;
         Arrays.sort(citations);
-        int len = citations.length;
+        for (int i = 0; i < citations.length; i++) {
+            if (citations[i] >= h - i) {
+                maximum = Math.max(maximum, h - i);
 
-        if (citations.length == 1) {
-            index = citations[0];
+            }
         }
-
-
-        if (len % 2 == 0) {
-            index = citations[len / 2 - 1];
-        } else {
-            index = citations[len / 2];
-        }
-
-        return index;
+        return maximum;
     }
 
     public static void main(String[] args) {
