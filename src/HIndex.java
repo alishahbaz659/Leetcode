@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class HIndex {
 
+    // O (nlogn)
     public static int hIndex(int[] citations) {
         int h = citations.length;
         int maximum = 0;
@@ -22,7 +23,7 @@ public class HIndex {
     }
 
     public static void main(String[] args) {
-        int[] citations = {100};
+        int[] citations = {5,5,5,5,5};
         System.out.println("H-index of the researcher: " + hIndex(citations));
     }
 }
