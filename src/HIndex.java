@@ -8,16 +8,27 @@ import java.util.Arrays;
 
 public class HIndex {
 
-    public static int hIndex(int[] citations){
-
+    public static int hIndex(int[] citations) {
+        int index = 0;
         Arrays.sort(citations);
-        System.out.println(Arrays.toString(citations));
+        int len = citations.length;
 
-        return 0;
+        if (citations.length == 1) {
+            index = citations[0];
+        }
+
+
+        if (len % 2 == 0) {
+            index = citations[len / 2 - 1];
+        } else {
+            index = citations[len / 2];
+        }
+
+        return index;
     }
 
     public static void main(String[] args) {
-        int[] citations = {3,0,6,1,5};
+        int[] citations = {100};
         System.out.println("H-index of the researcher: " + hIndex(citations));
     }
 }
