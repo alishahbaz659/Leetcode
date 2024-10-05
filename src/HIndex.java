@@ -1,7 +1,7 @@
 public class HIndex {
 
     public int hIndex(int[] citations){
-        return 0;
+        return -1;
     }
 
     public static void main(String[] args) {
