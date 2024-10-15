@@ -8,28 +8,51 @@ int getRandom() Returns a random element from the current set of elements (it's 
 You must implement the functions of the class such that each function works in average O(1) time complexity.
 * */
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 public class RandomizedSet {
 
-    public RandomizedSet() {
+    Set<Integer> numberSet;
 
+    public RandomizedSet() {
+        numberSet = new HashSet<Integer>();
     }
 
     public boolean insert(int val) {
-        return false;
+        if (numberSet.contains(val)) {
+            return false;
+        } else {
+            numberSet.add(val);
+            return true;
+        }
     }
 
     public boolean remove(int val) {
-        return false;
+        if (numberSet.contains(val)) {
+            numberSet.remove(val);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getRandom() {
-        return 0;
+        Integer[] arrayNumbers = numberSet.toArray(new Integer[numberSet.size()]);
+        Random random = new Random();
+        int randomSize = random.nextInt(numberSet.size());
+        return arrayNumbers[randomSize];
     }
 
     public static void main(String[] args) {
-        RandomizedSet obj = new RandomizedSet();
-        boolean param_1 = obj.insert(1);
-        boolean param_2 = obj.remove(2);
-        int param_3 = obj.getRandom();
+        RandomizedSet randomizedSet = new RandomizedSet();
+        randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+        randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
+        randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].
+        randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
+        randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
+        randomizedSet.insert(2); // 2 was already in the set, so return false.
+        System.out.printf("" + randomizedSet.getRandom()); // Since 2 is the only number in the set, getRandom() will always
     }
 }
