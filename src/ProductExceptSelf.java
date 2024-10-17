@@ -4,6 +4,7 @@ public class ProductExceptSelf {
 
 
     public static int[] productExceptSelf(int[] nums) {
+        int length = nums.length;
         return new int[0];
     }
 
