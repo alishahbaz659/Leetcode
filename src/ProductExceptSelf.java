@@ -13,7 +13,7 @@ public class ProductExceptSelf {
 
     public static int[] productExceptSelf(int[] nums) {
         int length = nums.length;
-        System.out.println("Length of the array is:" + nums.length);
+        System.out.println("Length of the array is this:" + nums.length);
         return new int[0];
     }
 
