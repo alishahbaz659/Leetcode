@@ -11,6 +11,7 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 public class ProductExceptSelf {
 
 
+    //brute force method
     public static int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         System.out.println("Length of the array is this:" + nums.length);
